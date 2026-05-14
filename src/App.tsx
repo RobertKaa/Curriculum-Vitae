@@ -1,15 +1,25 @@
 import {
   Aperture,
   ArrowUpRight,
+  Building2,
   CheckCircle2,
   Layers3,
   Mail,
   MapPin,
   Network,
+  RadioTower,
   Sparkles,
 } from 'lucide-react'
 import './App.css'
 import { cv } from './cv-data'
+
+function resolveAssetUrl(url: string) {
+  if (!url || url.startsWith('http') || url.startsWith('data:')) {
+    return url
+  }
+
+  return `${import.meta.env.BASE_URL}${url.replace(/^\/+/, '')}`
+}
 
 function App() {
   return (
@@ -22,8 +32,9 @@ function App() {
           </header>
 
           <section className="content-section" aria-labelledby="profile-heading">
-            <p className="eyebrow">Profil</p>
-            <h2 id="profile-heading">Approche</h2>
+            <h2 id="profile-heading" className="eyebrow section-label">
+              Profil
+            </h2>
             <p className="profile-text">{cv.profile}</p>
           </section>
 
@@ -32,10 +43,16 @@ function App() {
             <h2 id="experience-heading">Expériences</h2>
             <div className="timeline">
               {cv.experiences.map((experience) => (
-                <article className="timeline-item" key={experience.company}>
+                <article
+                  className="timeline-item"
+                  key={`${experience.period}-${experience.company}-${experience.client}-${experience.title}`}
+                >
                   <div className="timeline-meta">
                     <span>{experience.period}</span>
-                    <strong>{experience.company}</strong>
+                    <strong>
+                      {experience.company}
+                      {experience.client ? ` - ${experience.client}` : ''}
+                    </strong>
                   </div>
                   <div className="timeline-body">
                     <h3>{experience.title}</h3>
@@ -60,11 +77,14 @@ function App() {
             <div className="education-list">
               {cv.education.map((item) => (
                 <article className="education-item" key={item.title}>
-                  <span>{item.period}</span>
-                  <h3>{item.title}</h3>
-                  <p>
-                    <strong>{item.school}</strong> — {item.description}
-                  </p>
+                  <div className="education-meta">
+                    <span>{item.period}</span>
+                    <strong>{item.school}</strong>
+                  </div>
+                  <div className="education-body">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -76,7 +96,7 @@ function App() {
             {cv.photoUrl ? (
               <img
                 className="profile-photo"
-                src={cv.photoUrl}
+                src={resolveAssetUrl(cv.photoUrl)}
                 alt={`Portrait de ${cv.name}`}
               />
             ) : (
@@ -91,6 +111,10 @@ function App() {
             <ul className="contact-list">
               <li>
                 <MapPin size={16} aria-hidden="true" />
+                {cv.contact.address}
+              </li>
+              <li>
+                <Building2 size={16} aria-hidden="true" />
                 {cv.contact.location}
               </li>
               <li>
@@ -105,7 +129,7 @@ function App() {
           </section>
 
           <section className="side-section" aria-labelledby="stack-heading">
-            <h2 id="stack-heading">Stack web dev</h2>
+            <h2 id="stack-heading">Stack</h2>
             <div className="tag-list">
               {cv.stack.map((skill) => (
                 <span key={skill}>{skill}</span>
@@ -123,6 +147,18 @@ function App() {
                 </li>
               ))}
             </ul>
+          </section>
+
+          <section className="side-section community-note" aria-labelledby="community-heading">
+            <h2 id="community-heading">Communauté</h2>
+            <div className="community-card">
+              <RadioTower size={17} aria-hidden="true" />
+              <div>
+                <strong>{cv.community.title}</strong>
+                <span>{cv.community.role}</span>
+                <p>{cv.community.description}</p>
+              </div>
+            </div>
           </section>
 
           <section className="side-section" aria-labelledby="projects-heading">

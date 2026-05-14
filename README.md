@@ -31,7 +31,7 @@ npm run build
 
 ## Organisation actuelle
 
-- Bande latérale : photo, coordonnées, stack web dev, qualités, projets, hobbies.
+- Bande latérale : photo, coordonnées, stack, qualités, projets, hobbies.
 - Contenu principal : nom, rôle, profil, expériences, étude.
 
 ## Personnalisation
