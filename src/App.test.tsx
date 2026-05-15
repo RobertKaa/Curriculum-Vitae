@@ -12,6 +12,8 @@ describe('App', () => {
     expect(screen.getByText('Développeur frontend')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /^coordonnées$/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /^stack$/i })).toBeInTheDocument()
+    expect(screen.getByText('TypeScript')).toHaveClass('tag-language')
+    expect(screen.getByText('Méthodologie Scrum')).toHaveClass('tag-method')
     expect(screen.getByRole('heading', { name: /^qualités$/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /^communauté$/i })).toBeInTheDocument()
     expect(screen.getByText('Devoxx France')).toBeInTheDocument()

@@ -132,7 +132,9 @@ function App() {
             <h2 id="stack-heading">Stack</h2>
             <div className="tag-list">
               {cv.stack.map((skill) => (
-                <span key={skill}>{skill}</span>
+                <span className={`tag tag-${skill.type}`} key={skill.label}>
+                  {skill.label}
+                </span>
               ))}
             </div>
           </section>
@@ -151,14 +153,20 @@ function App() {
 
           <section className="side-section community-note" aria-labelledby="community-heading">
             <h2 id="community-heading">Communauté</h2>
-            <div className="community-card">
-              <RadioTower size={17} aria-hidden="true" />
-              <div>
-                <strong>{cv.community.title}</strong>
-                <span>{cv.community.role}</span>
-                <p>{cv.community.description}</p>
-              </div>
-            </div>
+            <ul className="plain-list">
+              {cv.communities.map((quality) => (
+                  <li key={quality.title}>
+                    <div className="community-card">
+                    <RadioTower size={17} aria-hidden="true" />
+                    <div>
+                      <strong>{quality.title}</strong>
+                      <span>{quality.role}</span>
+                      <p>{quality.description}</p>
+                    </div>
+                    </div>
+                  </li>
+              ))}
+            </ul>
           </section>
 
           <section className="side-section" aria-labelledby="projects-heading">

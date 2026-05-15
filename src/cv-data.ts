@@ -2,38 +2,41 @@ export const cv = {
   name: 'Stéphane Bran',
   role: 'Développeur frontend',
   profile:
-    "Je conçois des interfaces web stables, intuitives et soignées, avec une attention particulière portée aux détails d'usage. Mon regard de photographe m'aide à construire des expériences visuelles réalistes, lisibles et humaines.",
+  "Développeur web, j'aime concevoir des interfaces soignées et intuitives. " +
+      "Le design et l'UX me sont très chers, ils sont à la base de mon développement, soucieux de l'utilisateur et de l'accessibilité d'une application. " +
+      "Mon envie est particulièrement portée vers le Frontend, qui m'attire toujours plus au fil des années.",
   photoUrl: '/data/STV-14.jpg',
   contact: {
     address: '8 rue Boucry, 75018 Paris',
     location: 'Paris, France - remote',
-    email: 'contact@stephanebran.dev',
+    email: 'sbran75017+contact@gmail.com',
     linkedin: 'https://www.linkedin.com/in/stéphane-claude-bran/',
   },
   stack: [
-    'TypeScript',
-    'React',
-    'Vite',
-    'CSS / Sass',
-    'Méthodologie Scrum',
-    'Responsive design',
-    'Accessibilité',
-    'UI design',
-    'Tests frontend',
-    'Git',
+    { label: 'TypeScript', type: 'language' },
+    { label: 'React', type: 'language' },
+    { label: 'Vue', type: 'language' },
+    { label: 'CSS / Sass', type: 'language' },
+    { label: 'Git', type: 'language' },
+    { label: 'Méthodologie Scrum', type: 'method' },
+    { label: 'Responsive design', type: 'method' },
+    { label: 'UI design', type: 'method' },
+    { label: 'Accessibilité', type: 'method' },
   ],
   qualities: [
     'Soucieux de l’UX et de l’UI',
     'Sens du détail',
-    'Recherche de stabilité',
-    'Interfaces intuitives',
+      'Aime trouver et corriger les problèmes',
+    'Intuitivité des interfaces',
   ],
-  community: {
-    title: 'Devoxx France',
-    role: 'Membre de l’organisation',
-    description:
-      'Participation annuelle à l’organisation de la conférence, au service de la communauté tech francophone.',
-  },
+  communities: [
+      {
+        title: 'Devoxx France',
+        role: 'Polo rouge (orga)',
+        description:
+          'Participe à l\'organisation de l\'événement en orientant, aidant les participants. Accompagne les speakers pour fluidifier les échanges et les conférences.',
+      },
+  ],
   projects: [
     {
       name: 'Portfolio photo',
@@ -55,7 +58,7 @@ export const cv = {
       client: 'Enedis',
       title: 'Développeur Fullstack - Vue, .NET, Java',
       description:
-        'Développement d’une web application interne à Enedis. Ce portail permet au métier de gérer les interventions sur le réseau Enedis.',
+        'Développement d’une web application interne à Enedis. Ce portail permet au métier Enedis de vérifier la disponibilité et de gérer les interventions sur le réseau Enedis.',
       highlights: [
         "Création d'un front en Angular",
         'Connexion et utilisation de procédures stockées avec PostgreSQL',
@@ -128,4 +131,4 @@ export const cv = {
         'Apprentissage autonome dans un système peer-to-peer, orienté résolution de problèmes, partage de connaissances et adaptation au monde professionnel.',
     },
   ],
-}
+} as const
