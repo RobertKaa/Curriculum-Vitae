@@ -39,15 +39,15 @@ export const cv = {
   ],
   projects: [
     {
-      name: 'Portfolio photo',
-      description: 'Galerie photo personnelle.',
-      url: 'https://stephanebran.com',
-    },
-    {
       name: 'Find the Flag',
       description:
         "Projet de test de l'utilisation d'outils d'IA avec Codex (vibe coding / TU / MCPs).",
       url: 'https://vexiio.com',
+    },
+    {
+      name: 'Portfolio photo',
+      description: 'Galerie photo personnelle.',
+      url: 'https://stephanebran.com',
     },
   ],
   hobbies: ['Photographie', 'Retouche réaliste', 'Jeux vidéo', 'Sport'],
